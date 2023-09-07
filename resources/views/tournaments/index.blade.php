@@ -26,5 +26,5 @@
             </tr>
         @endforeach
     </table>
-    
+
 @endsection
