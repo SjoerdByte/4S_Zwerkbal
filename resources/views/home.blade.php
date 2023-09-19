@@ -6,6 +6,7 @@
         <a href="/tournaments">Toernooien</a>
         <a href="/teams">Teams</a>
         <a href="/players">Spelers</a>
+
     </nav>
 @endsection
 
@@ -19,7 +20,7 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-title">Aantal aankomende toernooien:</p>
-                    <h1 class="card-text" style="font-weight: bolder; font-size: 40px"">5</h1>
+                    <h1 class="card-text" style="font-weight: bolder; font-size: 40px">5</h1>
                 </div>
             </div>
             <div class="card">
@@ -44,3 +45,5 @@
 
     </div>
 @endsection
+
+
