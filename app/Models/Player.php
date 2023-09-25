@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class Player extends Model
 {
     use HasFactory;
-
-    /**
-     * @var mixed|string
-     */
 }

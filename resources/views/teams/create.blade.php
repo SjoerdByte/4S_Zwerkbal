@@ -6,6 +6,8 @@
         <a href="/tournaments">Toernooien</a>
         <a href="/teams" class="active">Teams</a>
         <a href="/players">Spelers</a>
+        <a href="/upcoming">Opkomend</a>
+        <a href="/schools">Scholen</a>
     </nav>
 @endsection
 
@@ -28,17 +30,16 @@
                 <option value="International">International</option>
                 <option value="Commercieel">Commercieel</option>
                 <option value="School">School</option>
-                <option value="Senior">Senior</option>
-                <option value="Junior">Junior</option>
-                <option value="Professionals">Professionals</option>
-                <option value="Amateurs">Amateurs</option>
-                <option value="Mixed">Mixed</option>
             </select>
         </div>
 
         <div class="form-group">
             <label for="country">Land van herkomst</label>
             <input type="text" id="country" name="country" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="players">Spelers</label>
+            <input type="text" id="players" name="players" class="form-control">
         </div>
 
         <button class="btn btn-success" style="margin-top: 5%" type="submit">Opslaan</button>

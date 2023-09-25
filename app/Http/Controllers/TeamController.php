@@ -27,7 +27,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view ('teams/create');
+        return view ('teams.create');
     }
 
     /**
@@ -42,7 +42,8 @@ class TeamController extends Controller
             'name' => 'required',
             'type' => 'required',
             'place' => 'required',
-            'country' => 'required'
+            'country' => 'required',
+            'players' => 'required'
         ]);
 
         $team = new Team();
@@ -50,7 +51,7 @@ class TeamController extends Controller
         $team->type = $request->type;
         $team->place = $request->place;
         $team->country = $request->country;
-
+        $team->players = $request->players;
         $team->save();
 
         return redirect()->route('teams.index');
@@ -83,13 +84,15 @@ class TeamController extends Controller
                 'name' => 'required',
                 'type' => 'required',
                 'place' => 'required',
-                'country' => 'required'
+                'country' => 'required',
+                'players' => 'required'
             ]);
 
             $team->name = $request->name;
             $team->type = $request->type;
             $team->place = $request->place;
             $team->country = $request->country;
+            $team->players = $request->players;
             $team->save();
 
             return redirect()->route('teams.index');

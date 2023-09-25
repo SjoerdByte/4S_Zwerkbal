@@ -1,3 +1,7 @@
 .card {
     border: 5px solid #EEBA30;
 }
+
+* {
+    font-family: 'Noto Sans', sans-serif;
+}

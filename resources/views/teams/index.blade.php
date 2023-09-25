@@ -6,6 +6,9 @@
         <a href="/tournaments">Toernooien</a>
         <a href="/teams" class="active">Teams</a>
         <a href="/players">Spelers</a>
+        <a href="/upcoming">Opkomend</a>
+        <a href="/schools">Scholen</a>
+
     </nav>
 @endsection
 
@@ -19,6 +22,7 @@
             <th>Plaats</th>
             <th>Soort</th>
             <th>Herkomst</th>
+            <th>Spelers</th>
             <th>Aanpassen</th>
         </tr>
         @foreach($teams as $team)
@@ -27,6 +31,7 @@
                 <td>{{ $team->place }}</td>
                 <td>{{ $team->type }}</td>
                 <td>{{ $team->country }}</td>
+                <td>{{ $team->players }}</td>
                 <td><a href="{{ route('teams.edit', $team->id) }}">Aanpassen</a></td>
             </tr>
         @endforeach
