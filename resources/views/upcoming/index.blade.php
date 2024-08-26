@@ -23,13 +23,16 @@
                     <div class="card-body" style="padding-bottom: 15%">
                         <p class="card-title">Aankomend toernooi:</p>
                         <h1 class="card-text" style="font-weight: bolder; font-size: 40px;">
-                            {{ $nextTournament->name }}
-                        </h1>
-                        <h4>Van</h4>
-                        <h3>{{ \Carbon\Carbon::parse($nextTournament->date)->format('d-m-Y') }}</h3>
-                        <h4>tot</h4>
-                        <h5>{{ \Carbon\Carbon::parse($nextTournament->start_time)->format('H:i') }} - {{ \Carbon\Carbon::parse($nextTournament->end_time)->format('H:i') }}</h5>
-                    </div>
+                            @if($nextTournament == null)
+                                <p>Er is geen toernooi gepland</p>
+                            @else
+                                {{ $nextTournament->name }}</h1>
+                                <h4>Van</h4>
+                                <h3 style="font-style: italic">{{ \Carbon\Carbon::parse($nextTournament->date)->format('d-m-Y')}}</h3>
+                                <h4>tot</h4>
+                                <h5 style="font-style: italic">{{ \Carbon\Carbon::parse($nextTournament->start_time)->format('H:i:s') }} - {{ \Carbon\Carbon::parse($nextTournament->end_time)->format('H:i:s') }}</h5>
+                        @endif
+                     </div>
                 </div>
             </div>
 

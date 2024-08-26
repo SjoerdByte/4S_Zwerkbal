@@ -6,6 +6,7 @@ Namespace Database\Seeders;
 use App\Models\Tournament;
 use App\Models\Team;
 use App\Models\School;
+use App\Models\Player;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -94,7 +95,6 @@ class DatabaseSeeder extends Seeder
         $team->type = $this->types[rand(0, count($this->types)-1)];
         $team->place = $this->places[rand(0, count($this->places)-1)];
         $team->country =$this->countries[rand(0, count($this->countries)-1)];
-        $team->players = $this->playerNames[rand(0, count($this->playerNames)-1)] . " " . $this->playerNames[rand(0, count($this->playerNames)-1)];
         $team->save();
 
         $team = new Team();
@@ -102,7 +102,6 @@ class DatabaseSeeder extends Seeder
         $team->type = $this->types[rand(0, count($this->types)-1)];
         $team->place = $this->places[rand(0, count($this->places)-1)];
         $team->country =$this->countries[rand(0, count($this->countries)-1)];
-        $team->players = $this->playerNames[rand(0, count($this->playerNames)-1)] . " " . $this->functions[rand(0, count($this->functions)-1)];
         $team->save();
 
         $team = new Team();
@@ -110,7 +109,6 @@ class DatabaseSeeder extends Seeder
         $team->type = $this->types[rand(0, count($this->types)-1)];
         $team->place = $this->places[rand(0, count($this->places)-1)];
         $team->country =$this->countries[rand(0, count($this->countries)-1)];
-        $team->players = $this->playerNames[rand(0, count($this->playerNames)-1)] . " " . $this->functions[rand(0, count($this->functions)-1)];
         $team->save();
 
         $team = new Team();
@@ -118,15 +116,6 @@ class DatabaseSeeder extends Seeder
         $team->type = $this->types[rand(0, count($this->types)-1)];
         $team->place = $this->places[rand(0, count($this->places)-1)];
         $team->country =$this->countries[rand(0, count($this->countries)-1)];
-        $team->players = $this->playerNames[rand(0, count($this->playerNames)-1)] . " " . $this->functions[rand(0, count($this->functions)-1)];
-        $team->save();
-
-        $team = new Team();
-        $team->name = "De Groene Goblins";
-        $team->type = $this->types[rand(0, count($this->types)-1)];
-        $team->place = $this->places[rand(0, count($this->places)-1)];
-        $team->country =$this->countries[rand(0, count($this->countries)-1)];
-        $team->players = $this->playerNames[rand(0, count($this->playerNames)-1)] . " " . $this->functions[rand(0, count($this->functions)-1)];
         $team->save();
 
         $team = new Team();
@@ -134,7 +123,13 @@ class DatabaseSeeder extends Seeder
         $team->type = $this->types[rand(0, count($this->types)-1)];
         $team->place = $this->places[rand(0, count($this->places)-1)];
         $team->country =$this->countries[rand(0, count($this->countries)-1)];
-        $team->players = $this->playerNames[rand(0, count($this->playerNames)-1)] . " " . $this->functions[rand(0, count($this->functions)-1)];
+        $team->save();
+
+        $team = new Team();
+        $team->name = "De Groene Goblins";
+        $team->type = $this->types[rand(0, count($this->types)-1)];
+        $team->place = $this->places[rand(0, count($this->places)-1)];
+        $team->country =$this->countries[rand(0, count($this->countries)-1)];
         $team->save();
 
         $school = new School();
@@ -176,6 +171,70 @@ class DatabaseSeeder extends Seeder
         $school->name = $this->schools[rand(0, count($this->schools)-1)];
         $school->location = 'Stockholm';
         $school->save();
+
+        $player = new Player();
+        $player->name = "Harry Potter";
+        $player->country = "England";
+        $player->role = "Seeker";
+        $player->team_id = $team->id;
+        $player->school_id = $school->id;
+        $player->tournament_id = $tournament->id;
+        $player->save();
+
+        $player = new Player();
+        $player->name = "Ron Weasley";
+        $player->country = "England";
+        $player->role = "Keeper";
+        $player->team_id = $team->id;
+        $player->school_id = $school->id;
+        $player->tournament_id = $tournament->id;
+        $player->save();
+
+        $player = new Player();
+        $player->name = "Hermione Granger";
+        $player->country = "England";
+        $player->role = "Chaser";
+        $player->team_id = $team->id;
+        $player->school_id = $school->id;
+        $player->tournament_id = $tournament->id;
+        $player->save();
+
+        $player = new Player();
+        $player->name = "Draco Malfoy";
+        $player->country = "England";
+        $player->role = "Beater";
+        $player->team_id = $team->id;
+        $player->school_id = $school->id;
+        $player->tournament_id = $tournament->id;
+
+        $player->save();
+
+        $player = new Player();
+        $player->name = "Cedric Diggory";
+        $player->country = "England";
+        $player->role = "Seeker";
+        $player->team_id = $team->id;
+        $player->school_id = $school->id;
+        $player->tournament_id = $tournament->id;
+        $player->save();
+
+        $player = new Player();
+        $player->name = "Cho Chang";
+        $player->country = "England";
+        $player->role = "Chaser";
+        $player->team_id = $team->id;
+        $player->school_id = $school->id;
+        $player->tournament_id = $tournament->id;
+        $player->save();
+
+        $player = new Player();
+        $player->name = "Ginny Weasley";
+        $player->country = "England";
+        $player->role = "Chaser";
+        $player->team_id = $team->id;
+        $player->school_id = $school->id;
+        $player->tournament_id = $tournament->id;
+        $player->save();
 
 
         //

@@ -37,10 +37,6 @@
             <label for="country">Land van herkomst</label>
             <input type="text" id="country" name="country" class="form-control" value="{{ $team->country }}">
         </div>
-        <div class="form-group">
-            <label for="players">Spelers</label>
-            <input type="text" id="players" name="players" class="form-control" value="{{ $team->players }}">
-        </div>
 
         <button class="btn btn-success" style="margin-top: 5%" type="submit">Opslaan</button>
 

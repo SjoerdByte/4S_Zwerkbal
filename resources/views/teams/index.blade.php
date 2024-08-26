@@ -31,7 +31,13 @@
                 <td>{{ $team->place }}</td>
                 <td>{{ $team->type }}</td>
                 <td>{{ $team->country }}</td>
-                <td>{{ $team->players }}</td>
+                <td>
+                    @if ($team->player)
+                        {{ $team->player->name }}
+                    @else
+                        Geen speler(s) in het team.
+                    @endif
+                </td>
                 <td><a href="{{ route('teams.edit', $team->id) }}">Aanpassen</a></td>
             </tr>
         @endforeach

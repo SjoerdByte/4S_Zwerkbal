@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Models\Player;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -11,9 +15,9 @@ class TeamController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Application|Factory|View
      */
-    public function index()
+    public function index(): Application|Factory|View
     {
         $teams = Team::all();
         return view('Teams/index')
@@ -42,8 +46,7 @@ class TeamController extends Controller
             'name' => 'required',
             'type' => 'required',
             'place' => 'required',
-            'country' => 'required',
-            'players' => 'required'
+            'country' => 'required'
         ]);
 
         $team = new Team();
@@ -51,7 +54,6 @@ class TeamController extends Controller
         $team->type = $request->type;
         $team->place = $request->place;
         $team->country = $request->country;
-        $team->players = $request->players;
         $team->save();
 
         return redirect()->route('teams.index');
@@ -61,12 +63,15 @@ class TeamController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Team  $team
-     * @return Response
+     * @return Application|Factory|View
      */
-    public function edit(Team $team)
+    public function edit($id)
     {
+        $team = Team::find($id);
+        $players = Player::all();
             return view('teams/edit')
-                ->with('team', $team);
+                ->with('team', $team)
+                ->with('players', $players);
     }
 
 
@@ -78,21 +83,20 @@ class TeamController extends Controller
      * @param  \App\Models\Team  $team
      * @return Response
      */
-    public function update(Request $request, Team $team)
+    public function update(Request $request, $id)
     {
             $request->validate([
                 'name' => 'required',
                 'type' => 'required',
                 'place' => 'required',
-                'country' => 'required',
-                'players' => 'required'
+                'country' => 'required'
             ]);
 
+            $team = Team::find($id);
             $team->name = $request->name;
             $team->type = $request->type;
             $team->place = $request->place;
             $team->country = $request->country;
-            $team->players = $request->players;
             $team->save();
 
             return redirect()->route('teams.index');
@@ -106,6 +110,7 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
+            $team = Team::find($id);
             $team->delete();
             return redirect()->route('teams.index');
     }

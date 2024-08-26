@@ -16,8 +16,8 @@ class UpcomingTournamentController extends Controller
             ->orderBy('date', 'asc')
             ->first();
 
-        return view('upcoming.index', ['nextTournament' => $nextTournament]);
 
+        return view('upcoming.index', ['nextTournament' => $nextTournament]);
     }
 
 

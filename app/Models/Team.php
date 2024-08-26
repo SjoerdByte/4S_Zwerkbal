@@ -9,7 +9,8 @@ class Team extends Model
 {
     use HasFactory;
 
-    /**
-     * @var mixed|string
-     */
+    public function players(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Player::class);
+    }
 }

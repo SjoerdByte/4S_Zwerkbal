@@ -15,18 +15,24 @@
 @section('content')
 
     <h1>Spelers</h1>
-    <a href="{{ route('player.create') }}" class="btn btn-secondary" style="margin-bottom: 2%">+ nieuwe speler</a>
+    <a href="{{ route('players.create') }}" class="btn btn-secondary" style="margin-bottom: 2%">+ nieuwe speler</a>
     <table class="table">
         <tr>
             <th>Naam</th>
             <th>Land</th>
+            <th>Positie</th>
             <th>Team naam</th>
+            <th>Aanpassen</th>
         </tr>
-        @foreach($teams as $team)
+        @foreach($players as $player)
             <tr>
-                <td>{{ $team->players }}</td>
-                <td>{{ $team->country }}</td>
-                <td>{{$team->name}}</td>
+                <td>{{ $player->name }}</td>
+                <td>{{ $player->country }}</td>
+                <td>{{ $player->role }}</td>
+                <td>{{ $player->team->name }}</td>
+                <td>
+                    <a href="{{ route('players.edit', $player->id) }}">Aanpassen</a>
+                </td>
             </tr>
         @endforeach
     </table>

@@ -36,6 +36,12 @@ Route::put('/teams/{team}',[TeamController::class,'update'])->name('teams.update
 Route::delete('/teams/{team}',[TeamController::class,'destroy'])->name('teams.destroy');
 
 Route::get('/players',[PlayerController::class,'index'])->name('players.index');
+Route::get('/players/{player}',[PlayerController::class,'show'])->name('players.show');
+Route::get('/players/create',[PlayerController::class,'create'])->name('players.create');
+Route::post('/players',[PlayerController::class,'store'])->name('players.store');
+Route::get('/players/{player}/edit',[PlayerController::class,'edit'])->name('players.edit');
+Route::put('/players/{player}',[PlayerController::class,'update'])->name('players.update');
+Route::delete('/players/{player}',[PlayerController::class,'destroy'])->name('players.destroy');
 
 Route::get('/upcoming', [UpcomingTournamentController::class, 'upcoming'])->name('tournaments.upcoming');
 
